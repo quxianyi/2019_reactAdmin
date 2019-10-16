@@ -123,7 +123,7 @@ module.exports = function(webpackEnv) {
       }
       if (preProcessor === "less-loader") {    //新增
         loader.options.modifyVars = {
-          'primary-color': '#fff',
+          'primary-color': '#33800d',
           'link-color': '#fff',
           'border-radius-base': '2px'
         }
