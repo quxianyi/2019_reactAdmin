@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import './login.less'
 import logo from './images/02.jpg'
+import {reqLogin} from '../../api/index'
+import Password from 'antd/lib/input/Password';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +14,12 @@ class Login extends Component {
         event.preventDefault()
         this.props.form.validateFields((err, values) => {
             if (!err) {
-              console.log('Received values of form: ', values);
+                const {username,password}=values
+              reqLogin(username,password).then(response=>{
+                console.log("成功"+response)
+              }).catch(err=>{
+                console.log("失败")
+              })
             }
         });
     }
